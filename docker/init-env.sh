@@ -169,3 +169,18 @@ curl -O https://raw.githubusercontent.com/pytorch/serve/master/docs/images/kitte
 curl http://127.0.0.1:9091/predictions/densenet161 -T kitten_small.jpg
 
 END
+
+cat > compose/docker-compose.yaml <<END
+version: "3.7"
+
+services:
+  torchserver:
+    image: pytorch/torchserve:latest
+    entrypoint: torchserve --start --ncs --model-store /home/model-server/model_store --models densenet161.mar --foreground
+    ports:
+      - 8080:8080
+      - 8081:8081
+      - 8082:8082
+    volumes:
+      - ./model_store:/home/model-server/model_store
+END
