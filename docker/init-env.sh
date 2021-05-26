@@ -158,7 +158,7 @@ PIPA
 wget https://download.pytorch.org/models/densenet161-8d451a50.pth -O compose/torchdata/densenet161-8d451a50.pth
 
 cat > compose/reminder.md <<END
-docker run -v $(pwd)/torchdata:/data -u root pytorch/torchserve:latest /bin/bash
+docker run -v \$(pwd)/torchdata:/data -u root -it --rm pytorch/torchserve:latest /bin/bash
 
 cd /data
 mkdir model_store
