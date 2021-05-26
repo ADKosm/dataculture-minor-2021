@@ -6,7 +6,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 mkdir -p crypt
 
-cat > crypt/crypy.py <<END
+cat > crypt/crypt.py <<END
 import sys
 from pathlib import Path
 
