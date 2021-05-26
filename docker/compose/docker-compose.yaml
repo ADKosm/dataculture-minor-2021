@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  torchserver:
+    image: pytorch/torchserve:latest
+    entrypoint: torchserve --start --ncs --model-store /home/model-server/model_store --models densenet161.mar --foreground
+    ports:
+      - 8080:8080
+      - 8081:8081
+      - 8082:8082
+    volumes:
+      - ./model_store:/home/model-server/model_store
