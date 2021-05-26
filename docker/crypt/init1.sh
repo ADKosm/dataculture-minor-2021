@@ -45,5 +45,5 @@ RUN pip install cryptography
 
 COPY crypt.py /app
 
-ENTRYPOINT ['python3', '/app/crypt.py']
+ENTRYPOINT ["python3", "/app/crypt.py"]
 END
